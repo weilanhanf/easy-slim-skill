@@ -307,29 +307,28 @@ Step 2: 调用多模态模型进行识别
    - < 0.5 : 猜测
 
 4. **图片质量评估**
-   - good: 清晰，光线充足，食物可见
-   - medium: 基本可识别，有一定模糊或遮挡
-   - poor: 模糊、光线差、无法识别
+   - 清晰: 光线充足，食物可见
+   - 一般: 基本可识别，有一定模糊或遮挡
+   - 较差: 模糊、光线差、无法识别
 
 ## 返回格式
 
-请严格返回以下 JSON 格式，不要添加任何解释：
+请严格返回以下 JSON 格式，不要添加任何解释，所有文字内容使用中文：
 
 ```json
 {
   "foods": [
     {
-      "name": "食物中文名",
-      "name_en": "English name",
+      "name": "食物名称（中文）",
       "estimated_grams": 数值,
       "confidence": 0.0-1.0,
-      "category": "carbs|protein|vegetable|meat|seafood|dairy|fruit|beverage|snack|other"
+      "category": "主食|蛋白质|蔬菜|肉类|海鲜|乳制品|水果|饮品|零食|其他"
     }
   ],
-  "image_quality": "good|medium|poor",
-  "meal_type": "breakfast|lunch|dinner|snack",
+  "image_quality": "清晰|一般|较差",
+  "meal_type": "早餐|午餐|晚餐|加餐",
   "total_estimated_calories": 数值,
-  "notes": "识别备注"
+  "notes": "识别备注（中文）"
 }
 ```
 
@@ -342,27 +341,25 @@ Step 2: 调用多模态模型进行识别
   "foods": [
     {
       "name": "白米饭",
-      "name_en": "White Rice",
       "estimated_grams": 150,
       "confidence": 0.95,
-      "category": "carbs"
+      "category": "主食"
     },
     {
       "name": "红烧肉",
-      "name_en": "Braised Pork",
       "estimated_grams": 80,
       "confidence": 0.85,
-      "category": "meat"
+      "category": "肉类"
     }
   ],
-  "image_quality": "good",
-  "meal_type": "lunch",
+  "image_quality": "清晰",
+  "meal_type": "午餐",
   "total_estimated_calories": 475,
   "notes": "图片清晰，普通饭碗大小的米饭，小碟红烧肉"
 }
 ```
 
-现在请识别这张图片中的食物，只返回 JSON。
+现在请识别这张图片中的食物，只返回 JSON，使用中文。
         
         === 发送给模型的内容结束 ===
 
@@ -377,14 +374,13 @@ Step 3: 接收模型返回
           "foods": [
             {
               "name": "白米饭",
-              "name_en": "White Rice",
               "estimated_grams": 150,
               "confidence": 0.95,
-              "category": "carbs"
+              "category": "主食"
             }
           ],
-          "image_quality": "good",
-          "meal_type": "lunch",
+          "image_quality": "清晰",
+          "meal_type": "午餐",
           "total_estimated_calories": 195,
           "notes": "普通饭碗的白米饭，图片清晰"
         }
@@ -412,7 +408,7 @@ Step 4: 解析识别结果
 
 Step 5: 检查图片质量
         
-        IF image_quality == "poor" THEN
+        IF image_quality == "较差" THEN
             发送警告消息:
             "⚠️ 图片质量较差，识别结果可能不准确。
              建议重新拍照，确保：
@@ -797,7 +793,7 @@ Step 4: 判断状态
 
 处理步骤:
 1. 检查 image_quality 字段
-2. IF image_quality == "poor" THEN
+2. IF image_quality == "较差" THEN
        发送提示：
        "图片质量较差，无法识别食物内容。
         请重新拍照，确保：

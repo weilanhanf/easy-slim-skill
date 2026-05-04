@@ -141,32 +141,30 @@ test_data/**
 
 ```markdown
 ---
-name: skill-name
-description: "技能描述"
+name: easy-slim
+description: "减肥助手技能描述"
 metadata:
   openclaw:
-    emoji: "🎯"
-    triggers: ["触发词1", "触发词2"]
+    emoji: "🦞"
+    wake_word: "胖虎"
+    triggers:
+      - "胖虎"
+      - "你好胖虎"
+      - "嗨胖虎"
+    image_trigger: true
 ---
 
-# 技能标题
-
-## When to Use
-✅ 使用场景
-
-## When NOT to Use
-❌ 不适用场景
-
-## Workflow
-工作流定义
+# Easy Slim - 减肥助手技能
 ```
 
 ### 技能触发机制
 
+本技能使用**唤醒词机制**，用户必须先说"胖虎"才能触发。
+
 | 触发方式 | 说明 |
 |----------|------|
-| 关键词触发 | 用户消息包含特定词汇 |
-| 图片消息 | 用户发送图片自动触发食物识别 |
+| 唤醒词触发 | 用户消息包含"胖虎"激活技能 |
+| 唤醒+图片 | 用户说"胖虎"并发送图片触发食物识别 |
 | 定时触发 | Cron 任务定时激活 |
 | 手动调用 | 用户明确请求 |
 
