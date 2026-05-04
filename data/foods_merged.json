@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "foods": [],
+  "_comment": "食物数据库需要单独下载，请运行 scripts/download_foods.sh 或查看 README.md 中的说明",
+  "_source": {
+    "global": "https://github.com/suyogshejal2004/caltrack-data",
+    "china": "https://github.com/ruffood/cn-food-mcp"
+  }
+}

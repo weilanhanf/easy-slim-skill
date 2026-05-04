@@ -1,0 +1,185 @@
+# Easy Slim Skill - Git Ignore Configuration
+# 此文件定义哪些文件不应上传到 Git 仓库
+
+# ============================================
+# 用户敏感数据 - 绝不上传
+# ============================================
+
+# 用户个人档案（包含身高、体重等隐私信息）
+data/profile.json
+data/user_profile.json
+
+# 减肥计划（包含个人健康目标）
+data/plan.json
+data/diet_plan.json
+
+# 每日饮食运动日志
+data/logs/
+data/logs/*.json
+data/daily_logs/
+
+# 用户上传的食物图片
+data/images/
+data/user_images/
+data/uploads/
+
+# ============================================
+# 测试数据 - 包含开发者私人数据
+# ============================================
+
+# 测试数据目录（本地测试用的私人数据）
+test_data/
+test_data/**
+
+# 测试图片
+test_data/sample_images/
+test_data/sample_images/**
+
+# 测试用户档案
+test_data/sample_profiles/
+test_data/sample_profiles/**
+
+# 测试日志
+test_data/test_logs/
+
+# ============================================
+# 系统生成文件
+# ============================================
+
+# 操作系统文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE/编辑器文件
+.idea/
+.idea/**
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Claude Code 配置（本地开发用）
+.claude/
+.claude/**
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 编辑器/IDE 文件
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# ============================================
+# Node.js 相关
+# ============================================
+
+# 依赖目录
+node_modules/
+node_modules/**
+
+# 日志文件
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 锁文件（可选，根据团队约定）
+# pnpm-lock.yaml
+# package-lock.json
+# yarn.lock
+
+# ============================================
+# 构建输出
+# ============================================
+
+# 构建产物
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# 缓存
+.cache/
+.parcel-cache/
+.turbo/
+
+# ============================================
+# 环境配置文件（可能包含敏感信息）
+# ============================================
+
+# 环境变量文件
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+
+# 配置文件（包含 API Key 等）
+config/secrets.json
+config/api_keys.json
+credentials/
+*.credentials.json
+
+# ============================================
+# QClaw/OpenClaw 特定文件
+# ============================================
+
+# OpenClaw 本地配置
+.openclaw/
+.openclaw/**
+
+# Gateway 配置（包含认证信息）
+gateway-config.json
+
+# 会话数据
+sessions/
+session-data/
+
+# ============================================
+# 备份文件
+# ============================================
+
+*.bak
+*.backup
+*.old
+*.orig
+
+# ============================================
+# 其他
+# ============================================
+
+# 临时文件
+tmp/
+temp/
+*.tmp
+
+# 调试文件
+debug/
+*.debug
+
+# 大文件（食物数据库的本地副本可能很大）
+# 注意：foods_merged.json 是静态数据，应该上传
+# 但如果超过 Git 限制，可考虑其他分发方式
+
+# 个人笔记/TODO（开发者私人文件）
+NOTES.md
+TODO.md
+PRIVATE.md
